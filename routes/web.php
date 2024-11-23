@@ -2,11 +2,15 @@
 
 use App\Livewire\HomeComponent;
 use App\Livewire\LoginComponent;
-use Illuminate\Support\Facades\Auth; // Tambahkan ini
+use App\Livewire\UserComponent; // Tambahkan ini
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 // Rute untuk Home dengan middleware auth
 Route::get('/', HomeComponent::class)->middleware('auth')->name('home');
+
+// Rute untuk User dengan middleware auth
+Route::get('/user', UserComponent::class)->name('user')->middleware('auth');
 
 // Rute untuk Login
 Route::get('/login', LoginComponent::class)->middleware('guest')->name('login');

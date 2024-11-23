@@ -4,6 +4,7 @@ use App\Livewire\HomeComponent;
 use App\Livewire\LoginComponent;
 use App\Livewire\UserComponent; 
 use App\Livewire\MemberComponent; 
+use App\Livewire\KategoriComponent; 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ Route::get('/', HomeComponent::class)->middleware('auth')->name('home');
 Route::get('/user', UserComponent::class)->name('user')->middleware('auth');
 
 Route::get('/member', MemberComponent::class)->name('member')->middleware('auth');
+
+Route::get('/categories', KategoriComponent::class)->name('categories')->middleware('auth');
 
 // Rute untuk Login
 Route::get('/login', LoginComponent::class)->middleware('guest')->name('login');

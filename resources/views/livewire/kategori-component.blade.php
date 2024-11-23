@@ -1,7 +1,7 @@
 <div>
     <div class="card">
         <div class="card-header">
-            Manage Member
+            Manage Book Categories
         </div>
         <div class="card-body">
             @if (session()->has('success'))
@@ -16,21 +16,14 @@
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Name</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">Telepon</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Jenis</th>
                             <th>Process</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($member as $data)
+                        @foreach ($categories as $data)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $data->nama }}</td>
-                                <td>{{ $data->alamat }}</td>
-                                <td>{{ $data->telepon }}</td>
-                                <td>{{ $data->email }}</td>
                                 <td>
                                     <a href="#" wire:click="edit({{ $data->id }})" class="btn btn-sm btn-info"
                                         data-toggle="modal" data-target="#editPage">Update</a>
@@ -43,19 +36,19 @@
 
                     </tbody>
                 </table>
-                {{ $member->links() }}
+                {{ $categories->links() }}
             </div>
             <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#createPage">Create</a>
         </div>
     </div>
 
-    <!-- Create Member (Modal) -->
+    <!-- Create Category (Modal) -->
     <div wire:ignore.self class="modal fade" id="createPage" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Create Member</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Create Category</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -70,28 +63,11 @@
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Telepon --}}
+                        {{-- Deskripsi --}}
                         <div class="form-group">
-                            <label for="nama">Telepon</label>
-                            <input type="text" class="form-control" wire:model="telepon"
-                                value="{{ @old('telepon') }}">
-                            @error('telepon')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        {{-- Alamat --}}
-                        <div class="form-group">
-                            <label for="nama">Alamat</label>
-                            <textarea wire:model="alamat" class="form-control" cols="30" rows="10">{{ @old('alamat') }}</textarea>
-                            @error('alamat')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        {{-- Email --}}
-                        <div class="form-group">
-                            <label for="nama">Email</label>
-                            <input type="text" class="form-control" wire:model="email" value="{{ @old('nama') }}">
-                            @error('email')
+                            <label for="nama">Deskripsi</label>
+                            <textarea wire:model="deskripsi" class="form-control" cols="30" rows="10">{{ @old('deskripsi') }}</textarea>
+                            @error('deskripsi')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -111,7 +87,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Member</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -121,35 +97,16 @@
                         {{-- Nama --}}
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" wire:model="nama"
-                                value="{{ @old('nama') }}">
+                            <input type="text" class="form-control" wire:model="nama" value="{{ @old('nama') }}">
                             @error('nama')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Telepon --}}
+                        {{-- Deskripsi --}}
                         <div class="form-group">
-                            <label for="nama">Telepon</label>
-                            <input type="text" class="form-control" wire:model="telepon"
-                                value="{{ @old('telepon') }}">
-                            @error('telepon')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        {{-- Alamat --}}
-                        <div class="form-group">
-                            <label for="nama">Alamat</label>
-                            <textarea wire:model="alamat" class="form-control" cols="30" rows="10">{{ @old('alamat') }}</textarea>
-                            @error('alamat')
-                                <small class="form-text text-danger">{{ $message }}</small>
-                            @enderror
-                        </div>
-                        {{-- Email --}}
-                        <div class="form-group">
-                            <label for="nama">Email</label>
-                            <input type="text" class="form-control" wire:model="email"
-                                value="{{ @old('nama') }}">
-                            @error('email')
+                            <label for="nama">Deskripsi</label>
+                            <textarea wire:model="deskripsi" class="form-control" cols="30" rows="10">{{ @old('deskripsi') }}</textarea>
+                            @error('deskripsi')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
@@ -169,7 +126,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Member</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

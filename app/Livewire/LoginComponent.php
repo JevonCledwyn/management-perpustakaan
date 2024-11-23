@@ -11,7 +11,7 @@ class LoginComponent extends Component
 
     public function render()
     {
-        return view('livewire.login-component');
+        return view('livewire.login-component')->layout('components.layouts.login');
     }
 
     public function proses()
@@ -43,6 +43,6 @@ class LoginComponent extends Component
 
         session()->regenerateToken();
 
-        return redirect()->route('welcome');
+        return redirect()->route('login');
     }
 }

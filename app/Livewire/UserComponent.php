@@ -10,7 +10,7 @@ class UserComponent extends Component
 {
     use WithPagination;
 
-    protected $themePagination='bootsrap';
+    protected $paginationTheme='bootstrap';
     public $nama, $email, $password;
 
     public function render()

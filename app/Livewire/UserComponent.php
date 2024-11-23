@@ -10,8 +10,8 @@ class UserComponent extends Component
 {
     use WithPagination;
 
-    protected $paginationTheme='bootstrap';
-    public $nama, $email, $password;
+    protected $paginationTheme = 'bootstrap';
+    public $nama, $email, $password, $id;
 
     public function render()
     {
@@ -20,11 +20,12 @@ class UserComponent extends Component
         return view('livewire.user-component', $data, $layout);
     }
 
-    public function create(){
+    public function create()
+    {
         $this->validate([
-       'nama'=>'required',    
-       'email'=>'required|email',
-       'password'=>'required', 
+            'nama' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
         User::create([
             'nama' => $this->nama,
@@ -33,7 +34,32 @@ class UserComponent extends Component
             'jenis' => 'admin'
         ]);
 
-        session()->flash('success','User Created');
+        session()->flash('success', 'User Created');
         $this->reset();
+    }
+
+    public function edit($id)
+    {
+        $user = User::find($id);
+        $this->nama = $user->nama;
+        $this->email = $user->email;
+        $this->id = $user->id;
+    }
+
+    public function update()
+    {
+        $user = User::find($this->id);
+        if ($this->password == "") {
+            $user->update([
+                'nama' => $this->nama,
+                'email' => $this->email,
+            ]);
+        } else {
+            $user->update([
+                'nama' => $this->nama,
+                'email' => $this->email,
+                'password' => $this->password,
+            ]);
+        }
     }
 }

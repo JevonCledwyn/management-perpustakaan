@@ -35,4 +35,15 @@ class LoginComponent extends Component
             'email' => 'Failed Authenticating',
         ])->onlyInput('email');
     }
+
+    public function keluar()
+    {
+        Auth::logout();
+
+        session()->invalidate();
+
+        session()->regenerateToken();
+
+        return redirect()->route('home');
+    }
 }

@@ -61,72 +61,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <!-- Sidebar -->
-                    <nav class="col-md-2 bg-dark sidebar">
-                        <div class="sidebar-sticky">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link active text-white" href="#dashboard">
-                                        <span data-feather="home"></span>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#members">
-                                        <span data-feather="users"></span>
-                                        Manage Members
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#books">
-                                        <span data-feather="book"></span>
-                                        Manage Books
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#loans">
-                                        <span data-feather="file"></span>
-                                        Manage Loans
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#returns">
-                                        <span data-feather="check-circle"></span>
-                                        Manage Returns
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#categories">
-                                        <span data-feather="tag"></span>
-                                        Manage Categories
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white" href="#staff">
-                                        <span data-feather="user"></span>
-                                        Manage Staff
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+                    @include('components.layouts.sidebar')
         
                     <!-- Main Content -->
                     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 main-content">
-                        <button class="btn btn-primary d-md-none menu-toggle">☰</button>
-                        <div
-                            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                            <h1 class="h2">Dashboard</h1>
-                            <div class="btn-toolbar mb-2 mb-md-0">
-                                <div class="btn-group mr-2">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Profile</button>
-                                </div>
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Login</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        @include('components.layouts.card')
+                        
+                        @include('components.layouts.navigation')
 
                         {{ $slot }}
         

@@ -6,7 +6,7 @@
             <button type="button" class="btn btn-sm btn-outline-secondary">Profile</button>
         </div>
         <div class="btn-group">
-            <a href"{{ route('logout') }}" class="btn btn-sm btn-outline-secondary">Logout</a>
+            <a href="{{ route('logout') }}" class="btn btn-sm btn-outline-secondary">Logout</a>
         </div>
     </div>
 </div>

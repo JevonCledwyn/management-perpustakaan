@@ -3,8 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth; // Tambahkan ini
-use Illuminate\Http\Request; // Tambahkan ini jika Anda memerlukan $request
+use Illuminate\Support\Facades\Auth;
 
 class LoginComponent extends Component
 {
@@ -15,10 +14,10 @@ class LoginComponent extends Component
         return view('livewire.login-component');
     }
 
-    public function proses(Request $request) // Tambahkan Request sebagai parameter
+    public function proses()
     {
         $credentials = $this->validate([
-            'email' => 'required|email', // Tambahkan validasi format email
+            'email' => 'required|email',
             'password' => 'required',
         ], [
             'email.required' => 'Email must be filled!',
@@ -32,8 +31,8 @@ class LoginComponent extends Component
         }
 
         return back()->withErrors([
-            'email' => 'Failed Authenticating',
-        ])->onlyInput('email');
+            'login' => 'Invalid credentials.',
+        ]);
     }
 
     public function keluar()
@@ -44,6 +43,6 @@ class LoginComponent extends Component
 
         session()->regenerateToken();
 
-        return redirect()->route('home');
+        return redirect()->route('welcome');
     }
 }

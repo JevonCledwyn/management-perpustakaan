@@ -64,4 +64,16 @@ class UserComponent extends Component
         session()->flash('success', 'User Updated');
         $this->reset();
     }
+
+    public function confirm($id)
+    {
+        $this->id = $id;
+    }
+    public function destroy()
+    {
+        $user = User::find($this->id);
+        $user->delete();
+        session()->flash('success','Delete Successful');
+        $this->reset();
+    }
 }

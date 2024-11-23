@@ -145,6 +145,5 @@
                     document.querySelector('.sidebar').classList.toggle('open');
                 });
             </script>
-        {{-- test --}}
     </body>
 </html>

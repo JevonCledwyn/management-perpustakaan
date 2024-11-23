@@ -61,5 +61,7 @@ class UserComponent extends Component
                 'password' => $this->password,
             ]);
         }
+        session()->flash('success', 'User Updated');
+        $this->reset();
     }
 }

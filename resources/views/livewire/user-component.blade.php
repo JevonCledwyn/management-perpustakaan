@@ -28,7 +28,7 @@
                                 <td>{{ $data->email }}</td>
                                 <td>{{ $data->jenis }}</td>
                                 <td>
-                                    <a href="#" wire:click="edit({{ $data->id }})" class="btn btn-sm btn-info" data-toggle="modal" data-target="#updatePage">Update</a>
+                                    <a href="#" wire:click="edit({{ $data->id }})" class="btn btn-sm btn-info" data-toggle="modal" data-target="#editPage">Update</a>
                                     <a href="#" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>

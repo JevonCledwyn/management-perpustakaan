@@ -9,6 +9,7 @@
                     {{ session('success') }}
                 </div>
             @endif
+            <input type="text" wire:model.live="search" class="form-control w-50" placeholder="Search . . .">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
@@ -154,7 +155,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" wire:click="destroy" class="btn btn-primary" data-dismiss="modal">Delete</button>
+                    <button type="button" wire:click="delete" class="btn btn-primary" data-dismiss="modal">Delete</button>
                 </div>
             </div>
         </div>

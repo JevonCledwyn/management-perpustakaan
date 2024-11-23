@@ -11,15 +11,22 @@ class UserComponent extends Component
     use WithPagination;
 
     protected $paginationTheme = 'bootstrap';
-    public $nama, $email, $password, $id;
+    public $nama, $email, $password, $id, $search;
 
     public function render()
     {
         $layout['title'] = "Manage User";
-        $data['user'] = User::paginate(10); // Mengambil data user dengan pagination
+        if ($this->search != "") {
+            $data['user'] = User::where('nama', 'like', '%' . $this->search . '%')
+                ->orWhere('email', 'like', '%' . $this->search . '%')
+                ->paginate(10);
+        } else {
+            $data['user'] = User::paginate(10);
+        }
         return view('livewire.user-component', $data, $layout);
     }
 
+    // Create User
     public function create()
     {
         $this->validate([
@@ -38,6 +45,7 @@ class UserComponent extends Component
         $this->reset();
     }
 
+    // Edit / Update User
     public function edit($id)
     {
         $user = User::find($id);
@@ -69,11 +77,13 @@ class UserComponent extends Component
     {
         $this->id = $id;
     }
-    public function destroy()
+
+    // Delete User
+    public function delete()
     {
         $user = User::find($this->id);
         $user->delete();
-        session()->flash('success','Delete Successful');
+        session()->flash('success', 'Delete Successful');
         $this->reset();
     }
 }

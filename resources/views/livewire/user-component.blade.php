@@ -1,24 +1,29 @@
 <div>
     <div class="card">
-        <div class="card-header">
+        <!-- Mengubah background header menjadi abu dan teks putih -->
+        <div class="card-header text-white" style="background-color: #808080;">
             Manage User
         </div>
-        <div class="card-body">
+        <!-- Mengubah background body menjadi putih tulang -->
+        <div class="card-body" style="background-color: #f5f5dc;">
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}
                 </div>
             @endif
-            <input type="text" wire:model.live="search" class="form-control w-50" placeholder="Search . . .">
+            <!-- Search input dengan background putih tulang -->
+            <input type="text" wire:model.live="search" class="form-control w-50 mb-3" placeholder="Search . . ."
+                style="background-color: #f5f5dc;">
             <div class="table-responsive">
-                <table class="table">
+                <!-- Table dengan background putih tulang -->
+                <table class="table" style="background-color: #f5f5dc;">
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
                             <th scope="col">Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Jenis</th>
-                            <th>Process</th>
+                            <th scope="col">Process</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,17 +34,23 @@
                                 <td>{{ $data->email }}</td>
                                 <td>{{ $data->jenis }}</td>
                                 <td>
-                                    <a href="#" wire:click="edit({{ $data->id }})" class="btn btn-sm btn-info" data-toggle="modal" data-target="#editPage">Update</a>
-                                    <a href="#" wire:click="confirm({{ $data->id }})" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deletePage">Delete</a>
+                                    <!-- Tombol Update dengan warna biru -->
+                                    <a href="#" wire:click="edit({{ $data->id }})"
+                                        class="btn btn-sm btn-primary" data-toggle="modal"
+                                        data-target="#editPage">Update</a>
+                                    <!-- Tombol Delete tetap berwarna merah -->
+                                    <a href="#" wire:click="confirm({{ $data->id }})"
+                                        class="btn btn-sm btn-danger" data-toggle="modal"
+                                        data-target="#deletePage">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
-
                     </tbody>
                 </table>
                 {{ $user->links() }}
             </div>
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#createPage">Create</a>
+            <!-- Tombol Create dengan warna hijau -->
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#createPage">Create</a>
         </div>
     </div>
 
@@ -48,7 +59,7 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header text-white" style="background-color: #808080;">
                     <h5 class="modal-title" id="exampleModalLabel">Create User</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -56,27 +67,29 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        {{-- Nama --}}
+                        <!-- Nama -->
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" wire:model="nama" value="{{ @old('nama') }}">
+                            <input type="text" class="form-control" wire:model="nama" value="{{ @old('nama') }}"
+                                style="background-color: #f5f5dc;">
                             @error('nama')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Email --}}
+                        <!-- Email -->
                         <div class="form-group">
-                            <label for="nama">Email</label>
-                            <input type="text" class="form-control" wire:model="email" value="{{ @old('nama') }}">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" wire:model="email" value="{{ @old('email') }}"
+                                style="background-color: #f5f5dc;">
                             @error('email')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Password --}}
+                        <!-- Password -->
                         <div class="form-group">
-                            <label for="nama">Password</label>
+                            <label for="password">Password</label>
                             <input type="password" class="form-control" wire:model="password"
-                                value="{{ @old('nama') }}">
+                                value="{{ @old('password') }}" style="background-color: #f5f5dc;">
                             @error('password')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
@@ -85,7 +98,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" wire:click="create" class="btn btn-primary" data-dismiss="modal">Save</button>
+                    <button type="button" wire:click="create" class="btn btn-primary"
+                        data-dismiss="modal">Save</button>
                 </div>
             </div>
         </div>
@@ -96,7 +110,7 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header text-white" style="background-color: #808080;">
                     <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -104,27 +118,29 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        {{-- Nama --}}
+                        <!-- Nama -->
                         <div class="form-group">
                             <label for="nama">Nama</label>
-                            <input type="text" class="form-control" wire:model="nama" value="{{ @old('nama') }}">
+                            <input type="text" class="form-control" wire:model="nama"
+                                value="{{ @old('nama') }}" style="background-color: #f5f5dc;">
                             @error('nama')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Email --}}
+                        <!-- Email -->
                         <div class="form-group">
-                            <label for="nama">Email</label>
-                            <input type="text" class="form-control" wire:model="email" value="{{ @old('nama') }}">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" wire:model="email"
+                                value="{{ @old('email') }}" style="background-color: #f5f5dc;">
                             @error('email')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Password --}}
+                        <!-- Password -->
                         <div class="form-group">
-                            <label for="nama">Password</label>
+                            <label for="password">Password</label>
                             <input type="password" class="form-control" wire:model="password"
-                                value="{{ @old('nama') }}">
+                                value="{{ @old('password') }}" style="background-color: #f5f5dc;">
                             @error('password')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
@@ -133,7 +149,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" wire:click="update" class="btn btn-primary" data-dismiss="modal">Save</button>
+                    <button type="button" wire:click="update" class="btn btn-primary"
+                        data-dismiss="modal">Save</button>
                 </div>
             </div>
         </div>
@@ -144,18 +161,19 @@
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
+                <div class="modal-header text-white" style="background-color: #808080;">
+                    <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Confirm to Delete Data ?</p>
+                    <p>Confirm to Delete Data?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" wire:click="delete" class="btn btn-primary" data-dismiss="modal">Delete</button>
+                    <button type="button" wire:click="delete" class="btn btn-danger"
+                        data-dismiss="modal">Delete</button>
                 </div>
             </div>
         </div>

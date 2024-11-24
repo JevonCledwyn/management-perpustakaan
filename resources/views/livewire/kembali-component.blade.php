@@ -1,17 +1,22 @@
 <div>
     <div class="card">
-        <div class="card-header">
+        <!-- Mengubah background header menjadi abu dan teks putih -->
+        <div class="card-header text-white" style="background-color: #808080;">
             Manage Pengembalian
         </div>
-        <div class="card-body">
+        <!-- Mengubah background body menjadi putih tulang -->
+        <div class="card-body" style="background-color: #f5f5dc;">
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}
                 </div>
             @endif
-            <input type="text" wire:model.live="search" class="form-control w-50" placeholder="Search Member...">
+            <!-- Search input dengan background putih tulang -->
+            <input type="text" wire:model.live="search" class="form-control w-50 mb-3" placeholder="Search Member..."
+                style="background-color: #f5f5dc;">
             <div class="table-responsive">
-                <table class="table">
+                <!-- Table dengan background putih tulang -->
+                <table class="table" style="background-color: #f5f5dc;">
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
@@ -20,7 +25,7 @@
                             <th scope="col">Tanggal Pinjam</th>
                             <th scope="col">Tanggal Kembali</th>
                             <th scope="col">Denda</th>
-                            <th>Process</th>
+                            <th scope="col">Process</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,8 +38,11 @@
                                 <td>{{ $data->tgl_kembali }}</td>
                                 <td>{{ $data->denda }}</td>
                                 <td>
-                                    <a href="#" wire:click="edit({{ $data->id }})" class="btn btn-sm btn-info"
-                                        data-toggle="modal" data-target="#editPage">Update</a>
+                                    <!-- Tombol Update dengan warna biru -->
+                                    <a href="#" wire:click="edit({{ $data->id }})"
+                                        class="btn btn-sm btn-primary" data-toggle="modal"
+                                        data-target="#editPage">Update</a>
+                                    <!-- Tombol Delete tetap berwarna merah -->
                                     <a href="#" wire:click="confirm({{ $data->id }})"
                                         class="btn btn-sm btn-danger" data-toggle="modal"
                                         data-target="#deletePage">Delete</a>
@@ -45,7 +53,8 @@
                 </table>
                 {{ $pengembalians->links() }}
             </div>
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#createPage">Create</a>
+            <!-- Tombol Create dengan warna hijau -->
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#createPage">Create</a>
         </div>
     </div>
 
@@ -59,6 +68,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        <!-- Peminjaman -->
                         <div class="form-group">
                             <label for="pinjam_id">Peminjaman</label>
                             <select wire:model="pinjam_id" class="form-control">
@@ -72,6 +82,7 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
+                        <!-- Tanggal Kembali -->
                         <div class="form-group">
                             <label for="tgl_kembali">Tanggal Kembali</label>
                             <input type="date" wire:model="tgl_kembali" class="form-control">
@@ -79,6 +90,7 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
+                        <!-- Denda -->
                         <div class="form-group">
                             <label for="denda">Denda</label>
                             <input type="number" wire:model="denda" class="form-control">
@@ -106,6 +118,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
+                        <!-- Peminjaman -->
                         <div class="form-group">
                             <label for="pinjam_id">Peminjaman</label>
                             <select wire:model="pinjam_id" class="form-control">
@@ -119,6 +132,7 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
+                        <!-- Tanggal Kembali -->
                         <div class="form-group">
                             <label for="tgl_kembali">Tanggal Kembali</label>
                             <input type="date" wire:model="tgl_kembali" class="form-control">
@@ -126,6 +140,7 @@
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
+                        <!-- Denda -->
                         <div class="form-group">
                             <label for="denda">Denda</label>
                             <input type="number" wire:model="denda" class="form-control">

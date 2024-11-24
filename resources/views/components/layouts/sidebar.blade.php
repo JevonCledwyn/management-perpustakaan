@@ -1,46 +1,39 @@
-<nav class="col-md-2 bg-dark sidebar">
+<nav class="col-md-2" style="background-color: #add8e6;"> <!-- Warna background biru muda -->
     <div class="sidebar-sticky">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active text-white" href="#dashboard">
-                    <span data-feather="home"></span>
-                    Dashboard
+                <a class="nav-link active text-dark" href="#dashboard"> <!-- Mengubah teks menjadi hitam -->
+                    Homepage
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('member') }}">
-                    <span data-feather="users"></span>
-                    Manage Members
+                <a class="nav-link text-dark" href="{{ route('member') }}"> <!-- Teks hitam -->
+                    CRUD Member
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('buku') }}">
-                    <span data-feather="book"></span>
-                    Manage Books
+                <a class="nav-link text-dark" href="{{ route('buku') }}">
+                    CRUD Buku
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('pinjam') }}">
-                    <span data-feather="file"></span>
-                    Manage Loans
+                <a class="nav-link text-dark" href="{{ route('pinjam') }}">
+                    CRUD Peminjaman
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('kembali') }}">
-                    <span data-feather="check-circle"></span>
-                    Manage Returns
+                <a class="nav-link text-dark" href="{{ route('kembali') }}">
+                    CRUD Pengembalian
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('categories') }}">
-                    <span data-feather="tag"></span>
-                    Manage Categories
+                <a class="nav-link text-dark" href="{{ route('categories') }}">
+                    CRUD Kategori
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="{{ route('user') }}">
-                    <span data-feather="user"></span>
-                    Manage Staff
+                <a class="nav-link text-dark" href="{{ route('user') }}">
+                    CRUD Admin
                 </a>
             </li>
         </ul>

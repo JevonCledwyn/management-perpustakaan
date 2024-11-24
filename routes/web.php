@@ -6,6 +6,8 @@ use App\Livewire\UserComponent;
 use App\Livewire\MemberComponent; 
 use App\Livewire\KategoriComponent; 
 use App\Livewire\BukuComponent; 
+use App\Livewire\PinjamComponent; 
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +22,8 @@ Route::get('/member', MemberComponent::class)->name('member')->middleware('auth'
 Route::get(uri: '/categories', action: KategoriComponent::class)->name('categories')->middleware('auth');
 
 Route::get(uri: '/buku', action: BukuComponent::class)->name('buku')->middleware('auth');
+
+Route::get(uri: '/pinjam', action: PinjamComponent::class)->name('pinjam')->middleware('auth');
 
 // Rute untuk Login
 Route::get('/login', LoginComponent::class)->middleware('guest')->name('login');

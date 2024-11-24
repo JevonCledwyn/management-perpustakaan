@@ -1,17 +1,18 @@
 <div>
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #808080;">
             Manage Member
         </div>
-        <div class="card-body">
+        <div class="card-body" style="background-color: #f5f5dc;">
             @if (session()->has('success'))
                 <div class="alert alert-success" role="alert">
                     {{ session('success') }}
                 </div>
             @endif
-            <input type="text" wire:model.live="search" class="form-control w-50" placeholder="Search . . .">
+            <input type="text" wire:model.live="search" class="form-control w-50 mb-3" placeholder="Search . . ."
+                style="background-color: #f5f5dc;">
             <div class="table-responsive">
-                <table class="table">
+                <table class="table" style="background-color: #f5f5dc;">
                     <thead>
                         <tr>
                             <th scope="col">No.</th>
@@ -19,8 +20,7 @@
                             <th scope="col">Alamat</th>
                             <th scope="col">Telepon</th>
                             <th scope="col">Email</th>
-                            <th scope="col">Jenis</th>
-                            <th>Process</th>
+                            <th scope="col">Process</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,20 +32,20 @@
                                 <td>{{ $data->telepon }}</td>
                                 <td>{{ $data->email }}</td>
                                 <td>
-                                    <a href="#" wire:click="edit({{ $data->id }})" class="btn btn-sm btn-info"
-                                        data-toggle="modal" data-target="#editPage">Update</a>
+                                    <a href="#" wire:click="edit({{ $data->id }})"
+                                        class="btn btn-sm btn-primary" data-toggle="modal"
+                                        data-target="#editPage">Update</a>
                                     <a href="#" wire:click="confirm({{ $data->id }})"
                                         class="btn btn-sm btn-danger" data-toggle="modal"
                                         data-target="#deletePage">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
-
                     </tbody>
                 </table>
                 {{ $member->links() }}
             </div>
-            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#createPage">Create</a>
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#createPage">Create</a>
         </div>
     </div>
 
@@ -62,7 +62,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        {{-- Nama --}}
+                        <!-- Nama -->
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" class="form-control" wire:model="nama" value="{{ @old('nama') }}">
@@ -70,27 +70,27 @@
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Telepon --}}
+                        <!-- Telepon -->
                         <div class="form-group">
-                            <label for="nama">Telepon</label>
+                            <label for="telepon">Telepon</label>
                             <input type="text" class="form-control" wire:model="telepon"
                                 value="{{ @old('telepon') }}">
                             @error('telepon')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Alamat --}}
+                        <!-- Alamat -->
                         <div class="form-group">
-                            <label for="nama">Alamat</label>
+                            <label for="alamat">Alamat</label>
                             <textarea wire:model="alamat" class="form-control" cols="30" rows="10">{{ @old('alamat') }}</textarea>
                             @error('alamat')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Email --}}
+                        <!-- Email -->
                         <div class="form-group">
-                            <label for="nama">Email</label>
-                            <input type="text" class="form-control" wire:model="email" value="{{ @old('nama') }}">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" wire:model="email" value="{{ @old('email') }}">
                             @error('email')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
@@ -118,7 +118,7 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        {{-- Nama --}}
+                        <!-- Nama -->
                         <div class="form-group">
                             <label for="nama">Nama</label>
                             <input type="text" class="form-control" wire:model="nama"
@@ -127,28 +127,28 @@
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Telepon --}}
+                        <!-- Telepon -->
                         <div class="form-group">
-                            <label for="nama">Telepon</label>
+                            <label for="telepon">Telepon</label>
                             <input type="text" class="form-control" wire:model="telepon"
                                 value="{{ @old('telepon') }}">
                             @error('telepon')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Alamat --}}
+                        <!-- Alamat -->
                         <div class="form-group">
-                            <label for="nama">Alamat</label>
+                            <label for="alamat">Alamat</label>
                             <textarea wire:model="alamat" class="form-control" cols="30" rows="10">{{ @old('alamat') }}</textarea>
                             @error('alamat')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
                         </div>
-                        {{-- Email --}}
+                        <!-- Email -->
                         <div class="form-group">
-                            <label for="nama">Email</label>
+                            <label for="email">Email</label>
                             <input type="text" class="form-control" wire:model="email"
-                                value="{{ @old('nama') }}">
+                                value="{{ @old('email') }}">
                             @error('email')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @enderror
